@@ -24,11 +24,11 @@ The heart of the detector board is the Raspberry Pi Pico which uses its ADC to m
 * [Raspberry Pi Pico](https://datasheets.raspberrypi.com/pico/pico-datasheet.pdf)
 * [Characterizing the Raspberry Pi Pico ADC](https://pico-adc.markomo.me/)
 
-Here are some front and back side renders of the detector PCB. Size is about 120 x 50 mm. If you don't need the additional space to mechanically mount the SiPM/scintillator assembly to the rest of the detector board, you can just cut it off at the white line and you're left with an even smaller detector.
+Here is sa front render of the detector PCB. Size is about 77 x 50 mm. 
 
 ![Front Side PCB](../docs/pcb_front.png)
 
-On the back side of the PCB there is also a jumper to connect the analog ground to the rest of the ground plane. You can solder that if you want to, if you know exactly what you're doing. It's not needed, though.
+On the front side of the PCB at JP1 there is also a jumper to connect the analog ground to the rest of the ground plane. You can solder that if you want to, if you know exactly what you're doing. It's not needed, though.
 
 There are also broken-out pins for the power supply, I2C, SPI and UART connections. These can be used to modify the device, e.g. by adding a display or using a battery charger. You can have a look at the great [Raspberry Pi Pico datasheet](https://datasheets.raspberrypi.com/pico/pico-datasheet.pdf) for more info on this.
 
