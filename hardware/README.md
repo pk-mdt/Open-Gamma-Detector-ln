@@ -28,8 +28,6 @@ Here are some front and back side renders of the detector PCB. Size is about 120
 
 ![Front Side PCB](../docs/pcb_front.png)
 
-![Back Side PCB](../docs/pcb_back.png)
-
 On the back side of the PCB there is also a jumper to connect the analog ground to the rest of the ground plane. You can solder that if you want to, if you know exactly what you're doing. It's not needed, though.
 
 There are also broken-out pins for the power supply, I2C, SPI and UART connections. These can be used to modify the device, e.g. by adding a display or using a battery charger. You can have a look at the great [Raspberry Pi Pico datasheet](https://datasheets.raspberrypi.com/pico/pico-datasheet.pdf) for more info on this.
@@ -118,12 +116,4 @@ The four screw holes on the PCB's actual detector part are connected to the circ
 
 As some level of protection against EMI, the peak and hold capacitor is periodically discharged as to avoid it being charged ever so slightly by interference. This takes place every millisecond by default and cannot be switched on or off via a serial command. This adds less than 1% of additional dead time (~2.5 µs per reset), so should be completely negligible.
 
-## 3D Printed Case
 
-You can get a 3D-printable case for the Open Gamma Detector with different styles of covers.
-
-All the STL files to print the two parts (main body and cover) can be found in [/enclosure](../enclosure), as well as some more info on the necessary screws and the USB extension cable.
-
-![Inside view of the box](../docs/inside_box.jpg)
-
-(This is an old image from Revision 2.0, but the footprint is exactly the same.)
