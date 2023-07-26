@@ -118,12 +118,4 @@ The four screw holes on the PCB's actual detector part are connected to the circ
 
 As some level of protection against EMI, the peak and hold capacitor is periodically discharged as to avoid it being charged ever so slightly by interference. This takes place every millisecond by default and cannot be switched on or off via a serial command. This adds less than 1% of additional dead time (~2.5 µs per reset), so should be completely negligible.
 
-## 3D Printed Case
 
-You can get a 3D-printable case for the Open Gamma Detector with different styles of covers.
-
-All the STL files to print the two parts (main body and cover) can be found in [/enclosure](../enclosure), as well as some more info on the necessary screws and the USB extension cable.
-
-![Inside view of the box](../docs/inside_box.jpg)
-
-(This is an old image from Revision 2.0, but the footprint is exactly the same.)
