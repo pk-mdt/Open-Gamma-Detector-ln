@@ -2,7 +2,9 @@
 
 **This is a revised hardware design from the original 3.0 version of the project. The project has been redesigned in Kicad and incorporates an impedance controlled 4 layer board design, as well as micro SMA connectors to the SiPM**
 
-These changed from the original project are hardware only, the original software works and has been fully tested on these revisions.
+These changed from the original project are hardware only, the original software works and has been fully tested on these revisions. Here is an assembled prototype with a Sodium Iodide Crystal from OST Photonics.
+
+![Assembled Detector and Latest Bare Board](docs/assembly.jpg)
 
 Revised custom layout and hardware for a hackable scintillation counter and multichannel analyzer (MCA) all-in-one device using a popular NaI(Tl) scintillation crystal and a silicon photomultiplier (SiPM). Extremely affordable design for a DIY gamma spectroscopy setup with a total parts cost of under around 200 USD.
 
