@@ -1,20 +1,12 @@
-<a href="https://certification.oshwa.org/at000005.html" title="Open Source Hardware Association Certificate"><img align="right" src="docs/oshw.svg" alt="Open Source Hardware Association Certificate"></a>
-
 # Open Gamma Detector
 
-**This is the latest hardware revision 3.0. For older revisions, please have a look at the [other branches](https://github.com/OpenGammaProject/Open-Gamma-Detector/branches). A comparison between the 2.x and 3.0 hardware can be found [here](https://hackaday.io/project/185211-all-in-one-gamma-ray-spectrometer/log/217500-here-comes-30).**
+**This is a revised hardware design from the original 3.0 version of the project. The project has been redesigned in Kicad and incorporates an impedance controlled 4 layer board design, as well as micro SMA connectors to the SiPM**
 
-**This project is also on [Hackaday.io](https://hackaday.io/project/185211-all-in-one-gamma-ray-spectrometer), where I post important project updates and other announcements!**
+These changed from the original project are hardware only, the original software works and has been fully tested on these revisions.
 
-Open hardware for a hackable scintillation counter and multichannel analyzer (MCA) all-in-one device using a popular NaI(Tl) scintillation crystal and a silicon photomultiplier (SiPM). Extremely affordable design for a DIY gamma spectroscopy setup with a total parts cost of under around 200 USD.
+Revised custom layout and hardware for a hackable scintillation counter and multichannel analyzer (MCA) all-in-one device using a popular NaI(Tl) scintillation crystal and a silicon photomultiplier (SiPM). Extremely affordable design for a DIY gamma spectroscopy setup with a total parts cost of under around 200 USD.
 
 The detector uses a standard serial-over-USB connection so that it can be integrated into as many other projects as possible, for example data logging with a Raspberry Pi, weather stations, Arduino projects, etc.
-
-<p align="center">
-  <img alt="Photo of the detector board with mounted SiPM, crystal and OLED" title="Photo of the detector board with mounted SiPM, crystal and OLED" width="500px" src="docs/oled.jpg">
-  <br>
-  <img alt="Photo of the detector board" title="Photo of the detector board" width="500px" src="docs/img1.jpg">
-</p>
 
 If you want a barebone version of the Open Gamma Detector to count pulses or something like that, you can have a look at the [Mini SiPM Driver](https://github.com/OpenGammaProject/Mini-SiD) board.
 
@@ -22,13 +14,13 @@ If you want a barebone version of the Open Gamma Detector to count pulses or som
 
 Here are some of the most important specs:
 
-* Compact design: Total size 120 x 50 mm. Approx. 70 x 50 mm area for electronics and additional 50 x 50 mm to mount a scintillator.
+* Compact design: Total size 77 x 50 mm.
 * All-in-one: No external parts (e.g. sound card) required to record gamma spectra.
 * Easily programmable using drag-and-drop firmware files or the standard Arduino IDE.
 * Low-voltage device: No HV needed like with photomultiplier tubes.
 * Can use SiPMs in the voltage range of 27.5 V to 33.8 V.
 * 4096 ADC channels with built-in 3 V voltage reference.
-* Energy resolution of ~8% @ 662 keV possible; highly dependent on your SiPM/scintillator assembly.
+* Revised Energy resolution of ~6% @ 662 keV possible; highly dependent on your SiPM/scintillator assembly.
 * Default (Energy) Mode: About 15 µs total dead time while measuring energy.
 * Geiger Mode: About 5 µs total dead time without energy measurements.
 * Low power consumption: ~25 mA @ 5 V with default firmware.
@@ -36,16 +28,6 @@ Here are some of the most important specs:
 * Built-in True Random Number Generator.
 * Simple OLED support out of the box (SSD1306 and SH110x).
 * Built-in customizable ticker support.
-
-## How To Get One
-
-* For quick access and purchase of all the parts (PCB and BOM), you can use [Kitspace](https://kitspace.org/boards/github.com/opengammaproject/open-gamma-detector/). Otherwise, use a PCB manufacturer and an electronics distributor of your choice and proceed on your own.
-
-* The fully assembled main detector board can be purchased on my [Tindie store](https://www.tindie.com/products/28827/). With your purchase your are also supporting me in my efforts to maintain and improve this project, thanks!
-
-<a href="https://www.tindie.com/stores/nuclearphoenix/?ref=offsite_badges&utm_source=sellers_NuclearPhoenix&utm_medium=badges&utm_campaign=badge_large"><img src="https://d2ss6ovg47m0r5.cloudfront.net/badges/tindie-larges.png" alt="I sell on Tindie" width="200" height="104"></a>
-
-**In both cases you will also need to buy a SiPM (e.g. the MICROFC-60035-SMT-TR) and scintillator (NaI(Tl) recommended) separately at a distributor of your choice.**
 
 ## Working Principle
 
@@ -55,7 +37,7 @@ Here is a nice flow chart to describe how the device roughly works:
 
 ## Hardware
 
-Hardware design has been done with [EasyEDA](https://easyeda.com/) and all the needed files for you to import the project as well as the schematic can be found in the `hardware` folder. There is also a Gerber file available for you to go directly to the PCB manufacturing step.
+Hardware design has been done with Kicad and all the needed files for you to import the project as well as the schematic can be found in the `hardware` folder. There is also a Gerber file available for you to go directly to the PCB manufacturing step.
 
 Detailed information about the hardware of the detector as well as the potentiometer settings and assembly can be found in the [hardware directory](/hardware/).
 
@@ -67,27 +49,7 @@ To program the Pico and/or play around with the firmware, head to the [software 
 
 ## Example Spectra
 
-Here is a small collection of example spectra I could make quickly without putting much effort into the detector settings (threshold, SiPM voltage, software tweaks). In addition, neither the electronics nor the scintillator and sample were shielded from EMI or background radiation whatsoever.
-
-Two hour long background spectrum with no samples:
-
-![Background spectrum](docs/bg.png)
-
-30 minute spectrum of two tiny (~5 g) LYSO scintillator showing two distinct gamma peaks (201.83, 306.78 keV) with an additional ~55 keV X-ray peak. The 307 keV peak has ~13.5% energy resolution in this case:
-
-![Lu-176 spectrum](docs/lu-176.png)
-
-30 minute spectrum of a standard household ionization smoke detector. Contains roughly 0.9 µCi of Am-241. Gamma peaks at 26.34 and 59.54 keV:
-
-![Am-176 spectrum](docs/am-241.png)
-
-30 minute spectrum of a small tea cup with pure Uraninite (Pitchblende) contents in its glaze. You can see all kinds of isotopes of the Uranium series including the Bi-214 peak at ~610 keV:
-
-![Uraninite Glaze](docs/glaze.png)
-
-Spectrum of a Na-22 test source, about ~2 µCi made with a Rev.2 board (worse energy resolution). You can see the 511 keV annihilation peak and the small 1275 keV gamma peak (much smaller due to limited NaI efficiency and small scintillator size for this energy):
-
-![Na-22](docs/na-22.png)
+Coming Soon
 
 ## Known Limitations
 
